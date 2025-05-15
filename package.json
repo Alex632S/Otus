@@ -1,12 +1,12 @@
 {
-  "name": "otus-1",
+  "name": "otus-3",
   "version": "1.0.0",
-  "author": "alexandr",
-  "description": "Deep Equal Function",
-  "type": "module",
+  "author": "alexandr_smotrov",
+  "description": "Tree Node.js File System",
   "scripts": {
-    "test": "node deepEqual.test.js",
-    "start": "node deepEqual.js"
+    "start1": "node tree.js ./node_modules --depth 1",
+    "start2": "node tree.js --depth 2",
+    "start": "node tree.js --depth N"
   },
   "keywords": [],
   "license": "ISC",
