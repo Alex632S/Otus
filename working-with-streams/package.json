@@ -1,0 +1,10 @@
+{
+  "name": "working-with-streams",
+  "version": "1.0.0",
+  "description": "Работа с потоками в NodeJS",
+  "type": "module",
+  "scripts": {
+    "test": "node index.js input.txt output.json",
+    "test-error": "node index.js empty.txt output.json"
+  }
+}
