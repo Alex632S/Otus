@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>getPath Demo</title>
+  <meta charset="UTF-8">
+  <style>
+    /* Стили для кликабельных элементов */
+    .clickable {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .clickable:hover {
+      background-color: #e6f7ff;
+      box-shadow: 0 0 0 2px #bae7ff;
+    }
+    
+    /* Стили для демо-интерфейса */
+    #app {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+    }
+    
+    .menu {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .menu-item {
+      padding: 10px 15px;
+      margin: 5px 0;
+      border-radius: 4px;
+    }
+    
+    .controls {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+    
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>getPath Demo</h1>
+    
+    <div class="controls">
+      <button id="demo-btn" class="clickable">Кнопка</button>
+      <select id="demo-select" class="clickable">
+        <option>Выпадающий список</option>
+        <option>Элемент 1</option>
+        <option>Элемент 2</option>
+      </select>
+      <a href="#" class="clickable">Ссылка</a>
+    </div>
+    
+    <ul class="menu">
+      <li class="menu-item clickable">Элемент меню 1</li>
+      <li class="menu-item clickable active">Активный элемент</li>
+      <li class="menu-item clickable">Элемент меню 3</li>
+    </ul>
+    
+    <div class="controls">
+      <label class="clickable">
+        <input type="checkbox"> Чекбокс
+      </label>
+    </div>
+    
+    <div id="output">Здесь будет отображаться селектор элемента</div>
+  </div>
+
+  <script type="module">
+    import getPath from './getPath.js';
+    
+    // Добавляем обработчик для всех кликабельных элементов
+    document.querySelectorAll('.clickable').forEach(element => {
+      element.addEventListener('click', function(e) {
+        e.preventDefault();
+        const selector = getPath(this);
+        document.getElementById('output').textContent = selector;
+        
+        // Временное выделение элемента
+        this.style.backgroundColor = '#bae7ff';
+        setTimeout(() => {
+          this.style.backgroundColor = '';
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
